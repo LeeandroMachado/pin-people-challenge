@@ -11,10 +11,8 @@ gem "dotenv-rails"
 gem "dry-validation"
 gem "dry-container"
 gem "dry-auto_inject"
-
-# gem "bcrypt", "~> 3.1.7"
-# gem "image_processing", "~> 1.2"
-# gem "rack-cors"
+gem "activerecord-import"
+gem "csv"
 
 group :development, :test do
   gem "sqlite3", ">= 1.4"

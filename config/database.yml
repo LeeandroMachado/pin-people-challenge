@@ -13,7 +13,6 @@ development:
 
 test:
   <<: *default
-  adapter: sqlite3
   database: <%= ENV['DATABASE_NAME'] %>_test
 
 production:
