@@ -20,7 +20,8 @@ RSpec.describe "Employees Requests", type: :request do
       end
 
       it "returns all employees" do
-        expect(JSON.parse(response.body).length).to eq(2)
+        body = JSON.parse(response.body)
+        expect(body["data"].length).to eq(2)
       end
     end
 
@@ -32,7 +33,8 @@ RSpec.describe "Employees Requests", type: :request do
       end
 
       it "returns matching employees qty" do
-        expect(JSON.parse(response.body).length).to eq(1)
+        body = JSON.parse(response.body)
+        expect(body["data"].length).to eq(1)
       end
     end
   end

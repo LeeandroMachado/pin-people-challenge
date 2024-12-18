@@ -13,6 +13,7 @@ gem "dry-container"
 gem "dry-auto_inject"
 gem "activerecord-import"
 gem "csv"
+gem "will_paginate", "~> 4.0"
 
 group :development, :test do
   gem "sqlite3", ">= 1.4"

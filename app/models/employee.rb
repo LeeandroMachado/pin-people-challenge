@@ -1,4 +1,6 @@
 class Employee < ApplicationRecord
+  self.per_page = 10
+
   belongs_to :organization_structure, required: true
   belongs_to :city, required: true
   belongs_to :positions_functions_area, required: true

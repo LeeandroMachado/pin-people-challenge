@@ -1,7 +1,7 @@
 module Employees
   class IndexEmployeeService
-    def call(filters)
-      get_filtered_employees(filters)
+    def call(filters, page = 1)
+      get_filtered_employees(filters).paginate(page: page)
     end
 
     private
