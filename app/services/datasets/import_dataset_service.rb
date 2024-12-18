@@ -1,11 +1,12 @@
 module Datasets
   class ImportDatasetService
-    include Import["datasets.import_dataset_schema", "datasets.store_dataset_service"]
+    include Import["datasets.import_dataset_schema", "employees.build_employee_service"]
 
     def call(csv)
-      data_hash = parse_csv_to_hash(csv)
-      valid_data = validate_data(data_hash)
-      store_data(valid_data)
+      parsed_data = parse_csv_to_hash(csv)
+      validated_data = validate_data(parsed_data)
+
+      import_data(validated_data[:dataset])
     end
 
     private
@@ -16,20 +17,48 @@ module Datasets
         headers: true,
         col_sep: ";",
         converters: [ :numeric ],
-        header_converters: proc { |header| format_header(header) }
+        header_converters: proc { |header|
+          header.parameterize.gsub("-", "_").to_sym
+        }
       ).map(&:to_h)
     end
 
     def validate_data(data)
-      import_dataset_schema.call(dataset: data).to_h
+      results = import_dataset_schema.call(dataset: data)
+
+      if results.errors.present?
+        raise DryValidationError.new(results.errors.to_h)
+      end
+
+      results.to_h
     end
 
-    def store_data(data)
-      store_dataset_service.call(data)
+    def import_data(data)
+      caches = initialize_caches
+      records = data.map { |row| build_employee_service.call(row, caches) }
+
+      ActiveRecord::Base.transaction do
+        Employee.import(
+          records,
+          batch_size: 50,
+          recursive: true,
+          on_duplicate_key_update: {
+            conflict_target: [ :email ],
+            columns: [
+              :positions_functions_area_id, :organization_structure_id,
+              :city_id, :tenure
+            ]
+          }
+        )
+      end
     end
 
-    def format_header(header)
-      header.parameterize.gsub("-", "_").to_sym
+    def initialize_caches
+      {
+        companies: {}, directorates: {}, management: {}, coordinations: {},
+        org_areas: {}, functions: {}, functional_areas: {}, positions: {},
+        cities: {}, employees: {}
+      }
     end
   end
 end
