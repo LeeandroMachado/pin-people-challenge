@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "5f2fb20d-227b-4e1e-80d8-d659697319d0",
+    "name": "pinpeople",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6010049"
+  },
+  "item": [
+    {
+      "name": "datasets",
+      "item": [
+        {
+          "name": "import",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "dataset",
+                  "type": "file",
+                  "src": "/Users/leandromachado/Downloads/data.csv"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:3000/datasets",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "3000",
+              "path": ["datasets"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "employees",
+      "item": [
+        {
+          "name": "index",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:3000/employees?page=1&name=001",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "3000",
+              "path": ["employees"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "name",
+                  "value": "001"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

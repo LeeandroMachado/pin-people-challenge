@@ -97,6 +97,12 @@ $ bundle exec rspec   # If using RSpec
 
 ---
 
+## POSTMAN API
+
+Endpoint are available [here](https://github.com/LeeandroMachado/pin-people-challenge/blob/main/public/er-diagram.png).
+
+---
+
 ## Entity-Relationship Diagram
 
 The ER Diagram for the system is available [here](https://github.com/LeeandroMachado/pin-people-challenge/blob/main/public/er-diagram.png).
