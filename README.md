@@ -99,6 +99,6 @@ $ bundle exec rspec   # If using RSpec
 
 ## Entity-Relationship Diagram
 
-The ER Diagram for the system is available [here](https://link-to-your-er-diagram.com).
+The ER Diagram for the system is available [here](https://github.com/LeeandroMachado/pin-people-challenge/blob/main/public/er-diagram.png).
 
 This diagram provides a visual representation of the relationships between tables such as `employees` and `survey_responses`.
