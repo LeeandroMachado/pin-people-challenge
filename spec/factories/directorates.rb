@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :directorate do
-    name { "MyString" }
+    name { Faker::Lorem.sentence(word_count: 3) }
   end
 end

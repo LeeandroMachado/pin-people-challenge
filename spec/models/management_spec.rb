@@ -18,7 +18,7 @@ RSpec.describe Management, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:management) }
+      before { create(:management, name: management.name) }
 
       it "includes error message" do
         is_expected.to be_invalid

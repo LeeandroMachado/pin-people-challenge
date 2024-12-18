@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :employee do
     name { "MyString" }
-    email { "MyString" }
-    corporate_email { "MyString" }
+    email { Faker::Internet.email }
+    corporate_email { Faker::Internet.email }
     positions_functions_area
     organization_structure
     gender { 1 }

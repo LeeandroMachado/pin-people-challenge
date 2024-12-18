@@ -18,7 +18,7 @@ RSpec.describe FunctionalArea, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:functional_area) }
+      before { create(:functional_area, name: functional_area.name) }
 
       it "includes error message" do
         is_expected.to be_invalid

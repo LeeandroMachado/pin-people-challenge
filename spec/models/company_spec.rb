@@ -18,7 +18,7 @@ RSpec.describe Company, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:company) }
+      before { create(:company, name: company.name) }
 
       it "includes error message" do
         is_expected.to be_invalid

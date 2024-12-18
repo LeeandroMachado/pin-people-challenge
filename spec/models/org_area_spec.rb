@@ -18,7 +18,7 @@ RSpec.describe OrgArea, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:org_area) }
+      before { create(:org_area, name: org_area.name) }
 
       it "includes error message" do
         is_expected.to be_invalid

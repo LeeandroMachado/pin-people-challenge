@@ -18,7 +18,7 @@ RSpec.describe City, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:city) }
+      before { create(:city, name: city.name) }
 
       it "includes error message" do
         is_expected.to be_invalid

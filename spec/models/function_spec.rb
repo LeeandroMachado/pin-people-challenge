@@ -18,7 +18,7 @@ RSpec.describe Function, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:function) }
+      before { create(:function, name: function.name) }
 
       it "includes error message" do
         is_expected.to be_invalid

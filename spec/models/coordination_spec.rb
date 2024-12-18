@@ -18,7 +18,7 @@ RSpec.describe Coordination, type: :model do
     end
 
     context "when name is not unique" do
-      before { create(:coordination) }
+      before { create(:coordination, name: coordination.name) }
 
       it "includes error message" do
         is_expected.to be_invalid
