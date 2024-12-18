@@ -1,0 +1,17 @@
+json.id employee.id
+json.name employee.name
+json.email employee.email
+json.corporate_email employee.corporate_email
+json.gender employee.gender
+json.generation employee.generation
+json.tenure employee.tenure
+json.company employee.organization_structure.company.name
+json.directorate employee.organization_structure.directorate.name
+json.management employee.organization_structure.management.name
+json.coordination employee.organization_structure.coordination.name
+json.org_area employee.organization_structure.org_area.name
+json.position employee.positions_functions_area.position.name
+json.function employee.positions_functions_area.function.name
+json.functional_area employee.positions_functions_area.functional_area.name
+json.city employee.city.name
+json.survey_responses employee.survey_responses

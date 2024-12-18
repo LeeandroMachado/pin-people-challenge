@@ -4,9 +4,7 @@ class Employee < ApplicationRecord
   belongs_to :organization_structure, required: true
   belongs_to :city, required: true
   belongs_to :positions_functions_area, required: true
-  has_one :position, through: :positions_functions_area
-  has_one :function, through: :positions_functions_area
-  has_one :functional_area, through: :positions_functions_area
+
   has_many :survey_responses
 
   enum :gender, { masculino: 0, outro: 1, feminino: 2 }

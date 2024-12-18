@@ -2,9 +2,10 @@ require "rails_helper"
 
 RSpec.describe "Employees Requests", type: :request do
   describe "GET employees" do
+    let(:headers) { { "Accept" => "application/json" } }
     subject { get "/employees", params: params, headers: headers }
 
-    let(:params) { { name: name } }
+    let(:params) { { name: name, page: 1 } }
     let(:name) { "001" }
 
     let!(:employee_one) { create(:employee, { name: "employee 001" }) }

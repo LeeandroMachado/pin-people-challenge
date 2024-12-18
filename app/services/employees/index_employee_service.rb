@@ -7,13 +7,17 @@ module Employees
     private
 
     def get_filtered_employees(filters)
-      return Employee.includes(
+      return scope.where("employees.name LIKE ?", "%#{filters[:name]}%") if filters[:name].present?
+
+      scope.all
+    end
+
+    def scope
+      Employee.includes(
         organization_structure: [ :company, :directorate, :management, :coordination, :org_area ],
         positions_functions_area: [ :position, :function, :functional_area ],
         city: []
-      ).where("employees.name LIKE ?", "%#{filters[:name]}%") if filters[:name].present?
-
-      Employee.all
+      )
     end
   end
 end
