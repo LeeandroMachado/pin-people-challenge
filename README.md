@@ -99,7 +99,7 @@ $ bundle exec rspec   # If using RSpec
 
 ## POSTMAN API
 
-Endpoint are available [here](https://github.com/LeeandroMachado/pin-people-challenge/blob/main/public/er-diagram.png).
+Endpoint are available [here](https://github.com/LeeandroMachado/pin-people-challenge/blob/main/public/pinpeople.postman_collection.json).
 
 ---
 
